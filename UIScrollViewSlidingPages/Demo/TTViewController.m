@@ -12,6 +12,7 @@
 #import "TabTwoViewController.h"
 #import "TTSlidingPage.h"
 #import "TTSlidingPageTitle.h"
+#import "CustomView.h"
 
 @interface TTViewController ()
     @property (strong, nonatomic) TTScrollSlidingPagesController *slider;
@@ -45,10 +46,10 @@
     //slider.titleScrollerItemWidth=60;
     //slider.titleScrollerBackgroundColour = [UIColor darkGrayColor];
     //slider.disableTitleScrollerShadow = YES;
-    //slider.disableUIPageControl = YES;
+    self.slider.disableUIPageControl = YES;
     //slider.initialPageNumber = 1;
     //slider.pagingEnabled = NO;
-    //slider.zoomOutAnimationDisabled = YES;
+    self.slider.zoomOutAnimationDisabled = YES;
     //self.slider.disableTitleShadow = YES;
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7){
@@ -99,7 +100,10 @@
         //all other pages just use a simple text header
         switch (index) {
             case 1:
-                title = [[TTSlidingPageTitle alloc] initWithHeaderText:@"Page 2"];
+            {
+                CustomView *customView = [[CustomView alloc] initWithFrame:CGRectMake(0, 0, source.titleScrollerItemWidth, source.titleScrollerHeight)];
+                title = [[TTSlidingPageTitle alloc] initWithCustomView:customView];
+            }
                 break;
             case 2:
                 title = [[TTSlidingPageTitle alloc] initWithHeaderText:@"Another Page"];

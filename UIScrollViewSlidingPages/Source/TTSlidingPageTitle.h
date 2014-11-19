@@ -29,11 +29,13 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "TTSlidingCustomViewProtocol.h"
 
 @interface TTSlidingPageTitle : NSObject
 
 -(id)initWithHeaderText:(NSString*)headerText;
 -(id)initWithHeaderImage:(UIImage*)headerImage;
+-(id)initWithCustomView:(id<TTSlidingCustomViewProtocol>)customView;
 
 //The title text to go in the nav bar
 @property(strong, nonatomic) NSString *headerText;
@@ -41,4 +43,5 @@
 //An image to use in the nav bar (if you set this, the title text will not be used)
 @property(strong, nonatomic) UIImage *headerImage;
 
+@property(strong, nonatomic) id<TTSlidingCustomViewProtocol> customView;
 @end

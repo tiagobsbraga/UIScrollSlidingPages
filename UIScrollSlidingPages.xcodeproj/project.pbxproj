@@ -32,6 +32,7 @@
 		9F9B9BA117037C0B00CD45B4 /* TTScrollSlidingPagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B9BA017037C0B00CD45B4 /* TTScrollSlidingPagesController.m */; };
 		9F9B9BA51703836D00CD45B4 /* TTSlidingPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B9BA41703836D00CD45B4 /* TTSlidingPage.m */; };
 		9FFDC5CC1722EEA1002A5689 /* TTScrollViewWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFDC5CB1722EEA1002A5689 /* TTScrollViewWrapper.m */; };
+		C7DF4BEB1A1CF4E20067D2CB /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DF4BEA1A1CF4E20067D2CB /* CustomView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,9 @@
 		9F9B9BA7170387BE00CD45B4 /* TTSlidingPagesDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSlidingPagesDataSource.h; sourceTree = "<group>"; };
 		9FFDC5CA1722EEA1002A5689 /* TTScrollViewWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTScrollViewWrapper.h; sourceTree = "<group>"; };
 		9FFDC5CB1722EEA1002A5689 /* TTScrollViewWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTScrollViewWrapper.m; sourceTree = "<group>"; };
+		C7DF4BE91A1CF4E20067D2CB /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomView.h; path = Images/CustomView.h; sourceTree = "<group>"; };
+		C7DF4BEA1A1CF4E20067D2CB /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomView.m; path = Images/CustomView.m; sourceTree = "<group>"; };
+		C7DF4BEC1A1CF75F0067D2CB /* TTSlidingCustomViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TTSlidingCustomViewProtocol.h; path = Images/TTSlidingCustomViewProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				9F2035E11706475B00438E50 /* Images */,
+				C7DF4BEC1A1CF75F0067D2CB /* TTSlidingCustomViewProtocol.h */,
 				9F9B9B9F17037C0B00CD45B4 /* TTScrollSlidingPagesController.h */,
 				9F9B9BA017037C0B00CD45B4 /* TTScrollSlidingPagesController.m */,
 				9F9B9BA31703836D00CD45B4 /* TTSlidingPage.h */,
@@ -191,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				9F2035E9170648E600438E50 /* Images */,
+				C7DF4BE91A1CF4E20067D2CB /* CustomView.h */,
+				C7DF4BEA1A1CF4E20067D2CB /* CustomView.m */,
 				9F9B9B981703758A00CD45B4 /* TTViewController.h */,
 				9F9B9B991703758A00CD45B4 /* TTViewController.m */,
 				9F9B9B9A1703758A00CD45B4 /* TTViewController.xib */,
@@ -304,6 +311,7 @@
 				9F7024C316DBF7080003B5FA /* TTUITableViewZoomController.m in Sources */,
 				9F7024C916DBF7E20003B5FA /* TabOneViewController.m in Sources */,
 				9F7024CE16DBF7F80003B5FA /* TabTwoViewController.m in Sources */,
+				C7DF4BEB1A1CF4E20067D2CB /* CustomView.m in Sources */,
 				9F9B9B9B1703758A00CD45B4 /* TTViewController.m in Sources */,
 				9F9B9BA117037C0B00CD45B4 /* TTScrollSlidingPagesController.m in Sources */,
 				9F9B9BA51703836D00CD45B4 /* TTSlidingPage.m in Sources */,

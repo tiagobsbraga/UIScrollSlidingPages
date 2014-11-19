@@ -31,9 +31,10 @@
 #import "TTScrollSlidingPagesController.h"
 #import "TTSlidingPage.h"
 #import "TTSlidingPageTitle.h"
-#import <QuartzCore/QuartzCore.h>
 #import "TTBlackTriangle.h"
 #import "TTScrollViewWrapper.h"
+#import "TTSlidingCustomViewProtocol.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TTScrollSlidingPagesController ()
 
@@ -244,7 +245,13 @@
             imageView.contentMode = UIViewContentModeScaleAspectFit;
             imageView.image = title.headerImage;
             topItem = (UIView *)imageView;
-        } else {
+        }
+        else if(title.customView != nil)
+        {
+            topItem = (UIView *)title.customView;
+        }
+        else
+        {
             UILabel *label = [[UILabel alloc] init];
             label.text = title.headerText;
             label.textAlignment = NSTextAlignmentCenter;
@@ -387,14 +394,24 @@
  
  @param page The X position of the active page index
  */
-- (void)updateHeaderTextColour:(int)page {
+- (void)updateHeader:(int)page {
     NSArray *vs = [topScrollView subviews];
     int title = 0;
     for (UIView *v in vs) {
-        if(title == page && [v isKindOfClass:[UILabel class]]){
-            ((UILabel *) v).textColor = self.titleScrollerTextColour;
-        } else if([v isKindOfClass:[UILabel class]]) {
-            ((UILabel *) v).textColor = self.titleScrollerInActiveTextColour;
+        if ([v respondsToSelector:@selector(markAsNormal)] || [v respondsToSelector:@selector(markAsSelected)])
+        {
+            id<TTSlidingCustomViewProtocol> cv = (id<TTSlidingCustomViewProtocol>)v;
+            if (title == page)
+                [cv markAsSelected];
+            else
+                [cv markAsNormal];
+        }
+        else if([v isKindOfClass:[UILabel class]])
+        {
+            if(title == page)
+                ((UILabel *) v).textColor = self.titleScrollerTextColour;
+            else
+                ((UILabel *) v).textColor = self.titleScrollerInActiveTextColour;
         }
         
         title++;
@@ -424,7 +441,7 @@
         pageControl.currentPage = page;
     }
     
-    [self updateHeaderTextColour:page];
+    [self updateHeader:page];
 }
 
 
@@ -608,7 +625,7 @@
         pageControl.currentPage = currentPage;
     }
     
-    [self updateHeaderTextColour:currentPage];
+    [self updateHeader:currentPage];
   
     //call the delegate to tell him you've scrolled to another page
     if([self.delegate respondsToSelector:@selector(didScrollToViewAtIndex:)]){

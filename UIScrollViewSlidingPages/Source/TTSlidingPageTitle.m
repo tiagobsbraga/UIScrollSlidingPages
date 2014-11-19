@@ -50,4 +50,12 @@
     return (self);
 }
 
+-(id)initWithCustomView:(id<TTSlidingCustomViewProtocol>)customView{
+    self = [super init];
+    if(self)
+    {
+        self.customView = customView;
+    }
+    return (self);
+}
 @end
